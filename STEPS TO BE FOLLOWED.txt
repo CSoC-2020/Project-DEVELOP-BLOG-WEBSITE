@@ -1,6 +1,6 @@
-                          ------ GUIDED BLOG PROJECT-------
-
-                           *****STEPS TO BE FOLLOWED*****
+                                                   ------ GUIDED BLOG PROJECT-------
+ 
+                                                     *****STEPS TO BE FOLLOWED*****
 
 1-->Html/css/js fundamentals
 2-->Learn to use Bootstrap
@@ -15,9 +15,9 @@
 11-->Hosting the completed website on servers!!
 12-->GETTING A DOMAIN NAME(OPTIONAL).
 
-  NOTE:-   *All the mentee/s will work on a same blog website,  (this would keep us intergrated)
-            but will have different Blog topics(each mentee with two topics!+ name of the blog decided)
+                  NOTE:-   *All the mentee/s will work on a same blog website,  (this would keep us intergrated)
+                            but will have different Blog topics(each mentee with two topics!+ name of the blog decided)
 
 
-    #We'll Begin with the proper Schedule as soon as the Bonding period ends. 
-                                           ~your mentor, Hitik.
+#We'll Begin with the proper Schedule as soon as the Bonding period ends. 
+                                                      ~  your mentor, Hitik.
