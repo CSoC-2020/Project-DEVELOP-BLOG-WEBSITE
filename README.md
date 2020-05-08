@@ -12,3 +12,4 @@ In this first phase of our project we will be making an awesome UI for our blog 
 
 CONNECTING TO DATABASE AND HOSTING ON WEB 
 As till now our Blog holds Data, now we will connect it with a Database. • MONGO-DB We will be using MongoDB Clusters for database connection the language will be JS for database communication with our back-end. • HOSTING THE WEBSITE Finally, our last step would be deploying our JS coded back-end onto servers, but for obvious reasons we can’t afford large noisy CPU servers🤞 Therefore we host and rent other’s server(e.g. aws, GCP, Heroku, Bluehost and many more.
+ By the end of this project we will have a fully working Blog.
