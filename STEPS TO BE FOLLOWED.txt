@@ -1,0 +1,23 @@
+                          ------ GUIDED BLOG PROJECT-------
+
+                           *****STEPS TO BE FOLLOWED*****
+
+1-->Html/css/js fundamentals
+2-->Learn to use Bootstrap
+3-->responsive designing
+4-->approach of web designing.
+5-->choose a blog name, content, topic, everything you want to compose.
+6-->finishing the front-end.
+7-->git and github (overview)
+8-->overview of the back-end of the blog website
+9-->finishing back-end
+10-->Database Connectivity
+11-->Hosting the completed website on servers!!
+12-->GETTING A DOMAIN NAME(OPTIONAL).
+
+  NOTE:-   *All the mentee/s will work on a same blog website,  (this would keep us intergrated)
+            but will have different Blog topics(each mentee with two topics!+ name of the blog decided)
+
+
+    #We'll Begin with the proper Schedule as soon as the Bonding period ends. 
+                                           ~your mentor, Hitik.
