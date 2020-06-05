@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "hitik",
   "license": "ISC",
@@ -13,8 +14,13 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.11",
-    "mongoose": "^5.7.5"
+    "mongoose": "^5.7.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
