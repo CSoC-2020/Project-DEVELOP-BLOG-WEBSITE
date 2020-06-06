@@ -4,6 +4,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
+const passport = require('passport')
+require('./passport')
 
 //created an express app which is required above
 const app = express();
@@ -14,6 +16,7 @@ app.set('view engine', 'ejs');
 //taking input from HTML, setting paths to files to app.js
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+app.use(passport.initialize())
 
 //connecting the blog post to a mongoDB
 mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
