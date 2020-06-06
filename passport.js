@@ -4,6 +4,9 @@ const {
     User,
     comparePassword
 } = require('./model/user')
+const passportJWT = require('passport-jwt')
+const JWTStrategy = passportJWT.Strategy
+const ExtractJwt = passportJWT.ExtractJwt
 
 
 passport.use(new LocalStrategy({
@@ -19,7 +22,7 @@ passport.use(new LocalStrategy({
         // have to write check for password
         let isValid = await comparePassword(user, password)
 
-        if(!isValid) {
+        if (!isValid) {
             return cb(null, false, {message: 'Incorrect password'})
         }
 
@@ -28,4 +31,15 @@ passport.use(new LocalStrategy({
     } catch (e) {
         return cb(e)
     }
+}))
+
+passport.use(new JWTStrategy({
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    secretOrKey: 'secret'
+}, (jwtPayload, cb) => {
+    return User.findById(jwtPayload.id).then(user => {
+        return cb(null, user)
+    }).catch(err => {
+        return cb(err)
+    })
 }))

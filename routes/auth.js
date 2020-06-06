@@ -3,10 +3,11 @@ const {
     login,
     signup
 } = require('../controller/auth')
+const passport = require('passport')
 
 router.route('/login')
     .get()
-    .post()
+    .post(passport.authenticate('local',{session: false}), login)
 
 router.route('/signup')
     .get()

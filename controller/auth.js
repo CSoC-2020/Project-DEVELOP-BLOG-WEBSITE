@@ -3,7 +3,17 @@ const jwt = require('jsonwebtoken')
 const User = require('../model/user')
 
 exports.login = async (req,res) => {
+    const user = req.user
+    try {
+        let token = jwt.sign({
+            id: user._id,
+            username: user.username
+        }, 'secret')
 
+        return res.status(200).json({token: token, message: 'Login Successfull'})
+    } catch (error) {
+        return res.status(404).json(err)
+    }
 }
 
 exports.signup = async (req,res) => {
