@@ -1,6 +1,9 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-const User = require('./model/user')
+const {
+    User,
+    comparePassword
+} = require('./model/user')
 
 
 passport.use(new LocalStrategy({
@@ -14,6 +17,11 @@ passport.use(new LocalStrategy({
             return cb(null, false, {message: 'Incorrect username'})
         }
         // have to write check for password
+        let isValid = await comparePassword(user, password)
+
+        if(!isValid) {
+            return cb(null, false, {message: 'Incorrect password'})
+        }
 
         return cb(null, user, {message: 'Login successful'})
 
