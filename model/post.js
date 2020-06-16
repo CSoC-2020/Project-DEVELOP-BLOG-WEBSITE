@@ -2,9 +2,17 @@ const mongoose = require('mongoose')
 
 const postSchema = mongoose.Schema({
     title: {
-        type: String
+        type: String,
+        required: true
     },
-    content: String
+    content: {
+        type: String,
+        required: true
+    },
+    userId: {
+        type: String,
+        required: false
+    }
 })
 
 const Post = mongoose.model('post', postSchema)

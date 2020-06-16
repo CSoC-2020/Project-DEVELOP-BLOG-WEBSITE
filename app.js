@@ -1,68 +1,33 @@
-//jshint esversion:6
-//require modules
-const express = require("express");
-const bodyParser = require("body-parser");
-const ejs = require("ejs");
-const mongoose = require('mongoose');
+// importing modules
+const express = require('express')
+const mongoose = require('mongoose')
 const passport = require('passport')
-require('./passport')
+const bodyParser = require('body-parser')
+const ejs = require('ejs')
+require('passport')
 
-//created an express app which is required above
-const app = express();
-
-//using ejs for smooth functioning
+// middlewares
+const app = express()
 app.set('view engine', 'ejs');
-
-//taking input from HTML, setting paths to files to app.js
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use(express.static('public'))
+app.use(bodyParser.json())
+app.use(bodyParser.raw())
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(passport.initialize())
 
-//connecting the blog post to a mongoDB
-mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
 
-//schema for blog post
-const postSchema = {
-  title: String,
-  content: String
-};
-//model for mongoose
-const Post = mongoose.model("Post", postSchema);
+// routes
+const mainRoute = require('./routes/main')
+app.use(mainRoute)
+const authRoute = require('./routes/auth')
+app.use('/auth', authRoute)
 
-//setting the webpage funtionality
-app.get("/", function(req, res){
-  Post.find({}, function(err, posts){
-    res.render("home", {
-      posts: posts
-      });
-  });
-});
 
-app.get("/compose", function(req, res){
-  res.render("compose");
-});
-
-app.post("/compose", function(req, res){
-  const post = new Post({
-    title: req.body.postTitle,
-    content: req.body.postBody
-  });
-  post.save(function(err){
-    if (!err){
-        res.redirect("/");
-    }
-  });
-});
-
-app.get("/about", function(req, res){
-  res.render("about");
-});
-
-app.get("/contact", function(req, res){
-  res.render("contact");
-});
-
-//listening on local server.
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
-});
+// starting server
+mongoose.connect('mongodb://localhost:27017/BLOG', {useNewUrlParser: true, useUnifiedTopology: true}).then(() => {
+    app.listen(process.env.PORT || 3000, () => {
+        console.log(`Server started at port ${process.env.PORT || 3000}`)
+    })
+}).catch(e => {
+    console.log(e)
+})
