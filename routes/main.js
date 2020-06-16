@@ -17,4 +17,10 @@ router.route('/contact')
         return res.render('contact', {})
     })
 
+
+router.route('/compose')
+    .get((req,res) => {
+        return res.render('compose',{})
+    })
+
 module.exports = router
